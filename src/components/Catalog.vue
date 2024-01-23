@@ -25,4 +25,11 @@ export default {
 </script>
 
 <style scoped>
+.catalog {
+    margin-top: 50px;
+    display: grid;
+    grid-template-columns: repeat(4, 350px);
+    gap: 5em 1.5em;
+    justify-content: center;
+}
 </style>
