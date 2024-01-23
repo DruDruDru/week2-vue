@@ -1,5 +1,5 @@
 <template>
-    <div class="product">
+    <div class="product" >
         <img src="../assets/logo.png" alt="product_image" />
         <div>
             <h3>{{ product.name }}</h3>
@@ -10,16 +10,15 @@
 </template>
 
 <script>
+
 export default {
     name: 'Product',
-    data() {
-        return {
-            product: {
-                id:1,
-                name:'test',
-                description:'test test',
-                price: 5000
-            }
+    props: {
+        product: {
+            id: Number,
+            name: String,
+            description: String,
+            price: Number
         }
     }
 }
