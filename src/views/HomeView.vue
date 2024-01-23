@@ -8,7 +8,7 @@
 import Catalog from '@/components/Catalog.vue'
 
 export default {
-    name: 'CatalogView',
+    name: 'HomeView',
     components: {
         Catalog,
     }

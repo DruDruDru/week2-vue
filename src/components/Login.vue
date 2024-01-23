@@ -38,6 +38,7 @@ export default {
     width: 300px;
     padding: 10px;
     margin: 0 auto;
+    gap: 5px;
 }
 .login input, button {
     border: 1px solid black;

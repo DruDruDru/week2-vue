@@ -1,7 +1,8 @@
 <template>
   <nav>
     <router-link :to="{ name: 'home' }">Каталог товаров</router-link> | 
-    <router-link :to="{ name: 'login' }">Авторизация</router-link>
+    <router-link :to="{ name: 'login' }">Авторизация</router-link> | 
+    <router-link :to="{ name: 'sighup' }">Регистрация</router-link>
   </nav>
   <router-view/>
 </template>

@@ -1,18 +1,24 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import CatalogView from '../views/CatalogView.vue'
-import { mapGetters } from 'vuex'
+import HomeView from '../views/HomeView.vue'
 
 const routes = [
   {
     path: '/',
     name: 'home',
-    component: CatalogView,
+    component: HomeView,
   },
   {
     path: '/login',
     name: 'login',
     component: function () {
       return import('../components/Login.vue')
+    },
+  },
+  {
+    path: '/sighup',
+    name: 'sighup',
+    component: function () {
+      return import('../components/Sighup.vue')
     },
   },
 ]
