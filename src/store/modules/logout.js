@@ -1,3 +1,5 @@
+
+
 export default {
     state: {
         message: ''
@@ -20,6 +22,7 @@ export default {
                     method: 'GET',
                     headers: {
                         'Content-Type': 'application/json;charset=utf-8',
+                        token: localStorage.getItem('myAppToken')
                     },
                 }
             );

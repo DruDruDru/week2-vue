@@ -22,10 +22,10 @@ const routes = [
     },
   },
   {
-    path: '/',
-    name: 'sighup',
+    path: '/cart',
+    name: 'cart',
     component: function () {
-      return import('../views/SighupView.vue')
+      return import('../views/CartView.vue')
     },
   },
 ]

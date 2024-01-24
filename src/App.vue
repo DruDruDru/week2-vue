@@ -3,6 +3,7 @@
     <router-link :to="{ name: 'home' }">Каталог товаров</router-link>
     <router-link v-if="!token" :to="{ name: 'login' }">Авторизация</router-link>
     <router-link v-if="!token" :to="{ name: 'sighup' }">Регистрация</router-link>
+    <router-link v-if="token" :to="{ name: 'cart' }">Корзина</router-link>
     <button v-if="token" @click="logout">Выход</button>
   </nav>
   <router-view/>

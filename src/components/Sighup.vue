@@ -38,7 +38,7 @@ export default {
                     "email": this.email,
                     "password": this.password,
                 }
-                this.$store.dispatch('REGISTER_REQUEST', dataRegister)
+                this.$store.dispatch('REGISTER_REQUEST', dataRegister).then(() => this.$router.push("/login"))
             } else {
                 if (this.errors.indexOf('Оба пароля должны совпадать') === -1) {
                     this.errors.push('Оба пароля должны совпадать')
