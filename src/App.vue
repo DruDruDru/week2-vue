@@ -4,6 +4,7 @@
     <router-link v-if="!token" :to="{ name: 'login' }">Авторизация</router-link>
     <router-link v-if="!token" :to="{ name: 'sighup' }">Регистрация</router-link>
     <router-link v-if="token" :to="{ name: 'cart' }">Корзина</router-link>
+    <router-link v-if="token" :to="{ name: 'orders' }">Заказы</router-link>
     <button v-if="token" @click="logout">Выход</button>
   </nav>
   <router-view/>

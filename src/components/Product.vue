@@ -20,11 +20,18 @@
                     Кол-во: {{ product.count }}
                     <button @click="addToCart(product.data[0].product_id)">Добавить</button>
                 </div>
+                <button @click="addToOrders(product.data[0].product_id)" id="toOrderButton">Заказать</button>
+            </div>
+            <div class="prodcut-wrap" v-if="isOrders">
+                <div class="product-text">
+                    <p>прикол</p>
+                </div>
+                <p>Цена: {{  }}</p>
             </div>
             <button 
                 v-if="inCatalog" 
                 class="add-to-cart" 
-                @click="addToCart(product)"
+                @click="addToCart(product.id)"
             >Добавить в корзину</button>
         </div>
     </div>
@@ -41,9 +48,13 @@ export default {
             description: String,
             price: Number
         },
-        inCatalog: Boolean
+        inCatalog: Boolean,
+        isOrders: Boolean
     },
     methods: {
+        async addToOrders(productId) {
+            await this.$store.dispatch('fetchOrdersPOST', productId)
+        },
         async addToCart(product) {
             await this.$store.dispatch('fetchCartPOST', product)
         },
@@ -65,6 +76,11 @@ export default {
 .product-image {
     width: 100px;
     height: 100px;
+}
+#toOrderButton {
+    border: 2px solid #2c3e50;
+    border-radius: 5px;
+    margin: 25px 0;
 }
 .product {
     display: flex;

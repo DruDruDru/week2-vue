@@ -28,6 +28,13 @@ const routes = [
       return import('../views/CartView.vue')
     },
   },
+  {
+    path: '/orders',
+    name: 'orders',
+    component: function () {
+      return import('../views/OrdersView.vue')
+    },
+  },
 ]
 
 const router = createRouter({
