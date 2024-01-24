@@ -1,7 +1,7 @@
 <template>
     <form class="sighup" @submit.prevent="sighup">
         <h1>Регистрация</h1>
-        <label>Имя</label>
+        <label>ФИО</label>
         <input type="text" required v-model="username" />
         <label>Почта</label>
         <input type="email" required v-model="email" />
@@ -34,10 +34,11 @@ export default {
             if (this.password === this.passwordConfirm) {
                 this.errors = []
                 const dataRegister = {
-                    username: this.username,
-                    email: this.email,
-                    password: this.password,
+                    "fio": this.username,
+                    "email": this.email,
+                    "password": this.password,
                 }
+                this.$store.dispatch('REGISTER_REQUEST', dataRegister)
             } else {
                 if (this.errors.indexOf('Оба пароля должны совпадать') === -1) {
                     this.errors.push('Оба пароля должны совпадать')
@@ -56,6 +57,7 @@ export default {
     padding: 10px;
     margin: 0 auto;
     gap: 5px;
+    margin-bottom: 25px;
 }
 .sighup input, button {
     border: 1px solid black;

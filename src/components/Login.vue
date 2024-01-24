@@ -1,8 +1,8 @@
 <template>
     <form class="login" @submit.prevent="login">
         <h1>Авторизация</h1>
-        <label>Имя</label>
-        <input type="text" required v-model="username" />
+        <label>Почта</label>
+        <input type="email" required v-model="email" />
         <label>Пароль</label>
         <input type="password" required v-model="password" />
         <hr />
@@ -14,14 +14,14 @@ export default {
     name: 'Login',
     data() {
         return {
-            username: "",
+            email: "",
             password: "",
         };
     },
     methods: {
         login() {
             const userData = {
-                username: this.username,
+                email: this.email,
                 password: this.password
             };
             this.$store
@@ -39,6 +39,7 @@ export default {
     padding: 10px;
     margin: 0 auto;
     gap: 5px;
+    margin-bottom: 25px;
 }
 .login input, button {
     border: 1px solid black;

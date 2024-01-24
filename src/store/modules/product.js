@@ -25,7 +25,7 @@ export default {
             );
             let temp = await res.json();
             const products = temp.data
-            console.log(process.env.VUE_APP_API);
+            
             ctx.commit('updateProducts', products)
         }
     },

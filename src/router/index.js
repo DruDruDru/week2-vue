@@ -11,14 +11,14 @@ const routes = [
     path: '/login',
     name: 'login',
     component: function () {
-      return import('../components/Login.vue')
+      return import('../views/LoginView.vue')
     },
   },
   {
     path: '/sighup',
     name: 'sighup',
     component: function () {
-      return import('../components/Sighup.vue')
+      return import('../views/SighupView.vue')
     },
   },
 ]
