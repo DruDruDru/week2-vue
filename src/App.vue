@@ -40,12 +40,19 @@ nav {
   justify-content: center;
 }
 
-nav a {
+nav a, button {
   font-weight: bold;
   color: #2c3e50;
 }
-
-nav a.router-link-exact-active {
+button {
+  font-size: 16px;
+  background-color: transparent;
+  border: 0;
+  cursor: pointer;
+  text-decoration: underline;
+}
+nav a.router-link-exact-active,
+button {
   color: #42b983;
 }
 </style>

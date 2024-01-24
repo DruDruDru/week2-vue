@@ -1,16 +1,21 @@
 <template>
     <div>
-        {{ test }}
+        <Product
+            v-for="product in inCart"
+            :key="product.id"  
+            :product="product"
+        />
     </div>
 </template>
 
 <script>
+import { mapGetters } from 'vuex';
+import Product from "@/components/Product.vue"
 export default {
     name: 'Cart',
-    data() {
-        return {
-            test: 'p'
-        }
+    computed: mapGetters['inCart'],
+    components: {
+        Product
     }
 }
 </script>

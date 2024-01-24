@@ -9,7 +9,7 @@
                 </div>
                 <p>Цена: {{ product.price }}</p>
             </div>
-            <button class="add-to-cart" @click="">Добавить в корзину</button>
+            <button class="add-to-cart" @click="addToCart(product)">Добавить в корзину</button>
         </div>
     </div>
 </template>
@@ -27,12 +27,14 @@ export default {
         }
     },
     methods: {
-        
+        async addToCart(product) {
+            await this.$store.dispatch('fetchCart', product)
+        }
     }
 }
 </script>
 
-<style scoped>
+<style>
 .product-text,
 .prodcut-wrap {
     display: flex;
@@ -52,10 +54,10 @@ export default {
     border: 0.25em solid rgb(125, 184, 36);
     border-radius: 15px;
 }
-p {
+.product p {
     max-width: 250px;
 }
-h3 {
+.product h3 {
     max-width: 325px;
 }
 </style>
