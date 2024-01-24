@@ -2,12 +2,24 @@
     <div class="product" >
         <img src="../assets/logo.png" class="product-image" alt="product_image" />
         <div class="product-info">
-            <div class="prodcut-wrap">
+            <div class="prodcut-wrap" v-if="inCatalog">
                 <div class="product-text">
                     <h3>{{ product.name }}</h3>
                     <p>{{ product.description }}</p>
                 </div>
                 <p>Цена: {{ product.price }}</p>
+            </div>
+            <div class="prodcut-wrap" v-if="!inCatalog">
+                <div class="product-text">
+                    <h3>{{ product.data[0].name }}</h3>
+                    <p>{{ product.data[0].description }}</p>
+                </div>
+                <p>Цена: {{ product.data[0].price }}</p>
+                <div>
+                    <button @click="removeFromCart(product.data[0].id)">Убрать</button>
+                    Кол-во: {{ product.count }}
+                    <button @click="addToCart(product.data[0].product_id)">Добавить</button>
+                </div>
             </div>
             <button 
                 v-if="inCatalog" 
@@ -34,6 +46,9 @@ export default {
     methods: {
         async addToCart(product) {
             await this.$store.dispatch('fetchCartPOST', product)
+        },
+        async removeFromCart(productId) {
+            await this.$store.dispatch('fetchCartDELETE', productId)
         }
     }
 }

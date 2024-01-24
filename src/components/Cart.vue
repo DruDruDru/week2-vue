@@ -2,7 +2,7 @@
     <div class="cart">
         <Product
             v-for="product in inCart"
-            :key="product.id"  
+            :key="product.product_id"  
             :product="product"
             :inCatalog="false"
         />
