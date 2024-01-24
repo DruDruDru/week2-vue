@@ -4,6 +4,7 @@
             v-for="product in allProducts"
             :key="product.id"  
             :product="product"
+            :inCatalog="true"
         />
     </div>
 </template>
@@ -24,8 +25,8 @@ export default {
 }
 </script>
 
-<style scoped>
-.catalog {
+<style>
+.catalog, .cart {
     margin-top: 50px;
     display: grid;
     grid-template-columns: repeat(4, 350px);

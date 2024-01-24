@@ -9,7 +9,11 @@
                 </div>
                 <p>Цена: {{ product.price }}</p>
             </div>
-            <button class="add-to-cart" @click="addToCart(product)">Добавить в корзину</button>
+            <button 
+                v-if="inCatalog" 
+                class="add-to-cart" 
+                @click="addToCart(product)"
+            >Добавить в корзину</button>
         </div>
     </div>
 </template>
@@ -24,11 +28,12 @@ export default {
             name: String,
             description: String,
             price: Number
-        }
+        },
+        inCatalog: Boolean
     },
     methods: {
         async addToCart(product) {
-            await this.$store.dispatch('fetchCart', product)
+            await this.$store.dispatch('fetchCartPOST', product)
         }
     }
 }

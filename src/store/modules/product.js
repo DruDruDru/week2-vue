@@ -25,7 +25,6 @@ export default {
             );
             let temp = await res.json();
             const products = temp.data
-            
             ctx.commit('updateProducts', products)
         }
     },

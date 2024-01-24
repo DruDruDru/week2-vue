@@ -1,8 +1,11 @@
 export default {
     getters:{
+        inCart(state) {
+            return state.cart
+        }
     },
     actions:{
-        fetchCart(ctx, product) {
+        async fetchCartPOST(ctx, product) {
             const token = localStorage.getItem('myAppToken')
             fetch(
                 `https://jurapro.bhuser.ru/api-shop/cart/${product.id}`,
@@ -14,11 +17,30 @@ export default {
                     },
                 }
             )
-
-        }
+        },
+        async fetchCartGET(ctx) {
+            const token = localStorage.getItem('myAppToken')
+            const res = await fetch(
+                `https://jurapro.bhuser.ru/api-shop/cart`,
+                {
+                    method: 'GET',
+                    headers: {
+                        'Content-Type': 'application/json;charset=utf-8',
+                        'Authorization': `Bearer ${token}`
+                    },
+                },
+            )
+            let cart = await res.json()
+            cart = cart.data
+            ctx.commit('updateCart', cart)
+        },
     },
     mutations:{
+        updateCart(state, cart) {
+            state.cart = cart
+        }
     },
     state:{
+        cart: []
     }
 }
