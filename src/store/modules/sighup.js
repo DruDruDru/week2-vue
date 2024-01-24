@@ -1,3 +1,5 @@
+import { API } from '@/config/config.js'
+
 export default {
     state: {
         userData: {},
@@ -17,7 +19,7 @@ export default {
     actions: {
         REGISTER_REQUEST: async (ctx, userData) => {
             const res = await fetch(
-                'https://jurapro.bhuser.ru/api-shop/signup',
+                `${API}/signup`,
                 {
                     method: 'POST',
                     headers: {

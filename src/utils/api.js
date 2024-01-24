@@ -1,4 +1,4 @@
-const API = 'https://jurapro.bhuser.ru/api-shop'
+import { API } from '@/config/config.js'
 
 export const loginRequest = (user) => {
     return new Promise((resolve, reject) => {

@@ -1,3 +1,5 @@
+import { API } from '@/config/config.js'
+
 export default {
     state: {
         message: ''
@@ -16,7 +18,7 @@ export default {
         async fetchLogout(ctx) {
             const token = localStorage.getItem('myAppToken')
             const res = await fetch(
-                `https://jurapro.bhuser.ru/api-shop/logout?token=${token}`,
+                `${API}/logout`,
                 {
                     method: 'GET',
                     headers: {

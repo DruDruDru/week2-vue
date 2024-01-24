@@ -1,3 +1,5 @@
+import { API } from '@/config/config.js'
+
 export default {
     getters:{
         inCart(state) {
@@ -7,8 +9,8 @@ export default {
     actions:{
         async fetchCartPOST(ctx, productId) {
             const token = localStorage.getItem('myAppToken')
-            fetch(
-                `https://jurapro.bhuser.ru/api-shop/cart/${productId}`,
+            await fetch(
+                `${API}/cart/${productId}`,
                 {
                     method: 'POST',
                     headers: {
@@ -21,7 +23,7 @@ export default {
         async fetchCartGET(ctx) {
             const token = localStorage.getItem('myAppToken')
             const res = await fetch(
-                `https://jurapro.bhuser.ru/api-shop/cart`,
+                `${API}/cart`,
                 {
                     method: 'GET',
                     headers: {
@@ -52,7 +54,7 @@ export default {
         async fetchCartDELETE(ctx, productId) {
             const token = localStorage.getItem('myAppToken')
             fetch(
-                `https://jurapro.bhuser.ru/api-shop/cart/${productId}`,
+                `${API}/cart/${productId}`,
                 {
                     method: 'DELETE',
                     headers: {

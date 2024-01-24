@@ -1,19 +1,16 @@
 # week2-lab
 
-## Project setup
+## Настройка проекта
 ```
 npm install
 ```
 
-### Compiles and hot-reloads for development
+### Компилирует и выполняет горячую перезагрузку для разработки
 ```
 npm run serve
 ```
 
-### Compiles and minifies for production
+### Сборка проекта для дальнейшей эксплуатации
 ```
 npm run build
 ```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).

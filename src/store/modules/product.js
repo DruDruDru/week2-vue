@@ -1,3 +1,5 @@
+import { API } from '@/config/config.js'
+
 export default {
     state: {
         products: []
@@ -15,7 +17,7 @@ export default {
     actions: {
         async fetchProducts(ctx) {
             const res = await fetch(
-                'https://jurapro.bhuser.ru/api-shop/products',
+                `${API}/products`,
                 {
                     method: 'GET',
                     headers: {

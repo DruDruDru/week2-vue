@@ -1,6 +1,6 @@
 <template>
     <h2>Заказы:</h2>
-    <Cart />
+    <Orders />
 </template>
 
 <script>

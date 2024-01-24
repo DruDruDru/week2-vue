@@ -1,3 +1,4 @@
+import { API } from '@/config/config.js'
 export default {
     getters:{
         inOrders(state) {
@@ -8,7 +9,7 @@ export default {
         async fetchOrdersPOST(ctx, productId) {
             const token = localStorage.getItem('myAppToken')
             fetch(
-                'https://jurapro.bhuser.ru/api-shop/order',
+                `${API}/order`,
                 {
                     method: 'POST',
                     headers: {
@@ -22,7 +23,7 @@ export default {
         async fetchOrdersGET(ctx) {
             const token = localStorage.getItem('myAppToken')
             const res = await fetch(
-                'https://jurapro.bhuser.ru/api-shop/order',
+                `${API}/order`,
                 {
                     method: 'GET',
                     headers: {
