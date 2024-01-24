@@ -1,5 +1,3 @@
-
-
 export default {
     state: {
         message: ''
@@ -16,13 +14,14 @@ export default {
     },
     actions: {
         async fetchLogout(ctx) {
+            const token = localStorage.getItem('myAppToken')
             const res = await fetch(
-                'https://jurapro.bhuser.ru/api-shop/logout',
+                `https://jurapro.bhuser.ru/api-shop/logout?token=${token}`,
                 {
                     method: 'GET',
                     headers: {
                         'Content-Type': 'application/json;charset=utf-8',
-                        token: localStorage.getItem('myAppToken')
+                        'Authorization': `Bearer ${token}`
                     },
                 }
             );
