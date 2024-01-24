@@ -1,12 +1,26 @@
 <template>
   <nav>
-    <router-link :to="{ name: 'home' }">Каталог товаров</router-link> | 
-    <router-link :to="{ name: 'login' }">Авторизация</router-link> | 
-    <router-link :to="{ name: 'sighup' }">Регистрация</router-link>
+    <router-link :to="{ name: 'home' }">Каталог товаров</router-link>
+    <router-link v-if="!token" :to="{ name: 'login' }">Авторизация</router-link>
+    <router-link v-if="!token" :to="{ name: 'sighup' }">Регистрация</router-link>
+    <button v-if="token" @click="logout">Выход</button>
   </nav>
   <router-view/>
 </template>
-
+<script>
+export default {
+  data() {
+    return {
+      token: localStorage.getItem('myAppToken')
+    }
+  },
+  methods: {
+    async logout() {
+      await this.$store.dispatch('fetchLogout')
+    }
+  }
+}
+</script>
 <style>
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
@@ -18,6 +32,9 @@
 
 nav {
   padding: 30px;
+  display: flex;
+  gap: 1.5em;
+  justify-content: center;
 }
 
 nav a {

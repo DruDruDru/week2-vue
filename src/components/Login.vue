@@ -10,6 +10,7 @@
     </form>
 </template>
 <script>
+import { mapGetters } from 'vuex'
 export default {
     name: 'Login',
     data() {
@@ -20,13 +21,17 @@ export default {
     },
     methods: {
         login() {
-            const userData = {
+            if (mapGetters['isAuthenticated']) {
+                alert('Уже зарегистрирован')
+            } else {
+                const userData = {
                 email: this.email,
                 password: this.password
-            };
-            this.$store
-              .dispatch('AUTH_REQUEST', userData)
-              .then(() => this.$router.push("/"));
+                };
+                this.$store
+                .dispatch('AUTH_REQUEST', userData)
+                .then(() => this.$router.push("/"));
+            }
         }
     }
 }

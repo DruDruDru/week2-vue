@@ -21,6 +21,13 @@ const routes = [
       return import('../views/SighupView.vue')
     },
   },
+  {
+    path: '/',
+    name: 'sighup',
+    component: function () {
+      return import('../views/SighupView.vue')
+    },
+  },
 ]
 
 const router = createRouter({
