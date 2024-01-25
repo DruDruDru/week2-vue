@@ -20,13 +20,6 @@
                     Кол-во: {{ product.count }}
                     <button @click="addToCart(product.data[0].product_id)">Добавить</button>
                 </div>
-                <button @click="addToOrders(product.data[0].product_id)" id="toOrderButton">Заказать</button>
-            </div>
-            <div class="prodcut-wrap" v-if="isOrders">
-                <div class="product-text">
-                    <p>прикол</p>
-                </div>
-                <p>Цена: {{  }}</p>
             </div>
             <button 
                 v-if="inCatalog" 
@@ -52,9 +45,6 @@ export default {
         isOrders: Boolean
     },
     methods: {
-        async addToOrders(productId) {
-            await this.$store.dispatch('fetchOrdersPOST', productId)
-        },
         async addToCart(product) {
             await this.$store.dispatch('fetchCartPOST', product)
         },

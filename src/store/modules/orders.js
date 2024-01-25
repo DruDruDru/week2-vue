@@ -6,7 +6,7 @@ export default {
         }
     },
     actions:{
-        async fetchOrdersPOST(ctx, productId) {
+        async fetchOrdersPOST() {
             const token = localStorage.getItem('myAppToken')
             fetch(
                 `${API}/order`,
@@ -16,7 +16,6 @@ export default {
                         'Content-Type': 'application/json;charset=utf-8',
                         'Authorization': `Bearer ${token}`
                     },
-                    body: productId
                 }
             )
         },
@@ -32,7 +31,8 @@ export default {
                     },
                 }
             );
-            const orders = await res.json(); 
+            let orders = await res.json(); 
+            orders = orders.data
             ctx.commit('updateOrders', orders)
         },
     },

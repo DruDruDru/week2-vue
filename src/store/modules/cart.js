@@ -53,7 +53,7 @@ export default {
         },
         async fetchCartDELETE(ctx, productId) {
             const token = localStorage.getItem('myAppToken')
-            fetch(
+            await fetch(
                 `${API}/cart/${productId}`,
                 {
                     method: 'DELETE',
