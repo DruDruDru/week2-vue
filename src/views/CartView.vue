@@ -6,6 +6,7 @@
         id="toOrderButton"
         v-if="cartEmpty"
     >Заказать</button>
+    <h3 v-if="!cartEmpty">Корзина пуста</h3>
 </template>
 
 <script>

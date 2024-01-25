@@ -23,6 +23,7 @@
             </div>
             <button 
                 v-if="inCatalog" 
+                v-show="token"
                 class="add-to-cart" 
                 @click="addToCart(product.id)"
             >Добавить в корзину</button>
@@ -42,14 +43,20 @@ export default {
             price: Number
         },
         inCatalog: Boolean,
-        isOrders: Boolean
+    },
+    data() {
+        return {
+            token: localStorage.getItem('myAppToken')
+        }
     },
     methods: {
         async addToCart(product) {
             await this.$store.dispatch('fetchCartPOST', product)
+            window.location.reload()
         },
         async removeFromCart(productId) {
             await this.$store.dispatch('fetchCartDELETE', productId)
+            window.location.reload()
         }
     }
 }

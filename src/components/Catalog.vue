@@ -21,7 +21,7 @@ export default {
     computed: mapGetters(['allProducts']),
     async mounted() {
         await this.$store.dispatch('fetchProducts');
-    }
+    },
 }
 </script>
 

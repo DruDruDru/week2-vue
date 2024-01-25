@@ -30,7 +30,7 @@ export default {
                 };
                 this.$store
                 .dispatch('AUTH_REQUEST', userData)
-                .then(() => this.$router.push("/"));
+                .then(() => this.$router.push("/"))
             }
         }
     }

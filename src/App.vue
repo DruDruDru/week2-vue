@@ -20,10 +20,11 @@ export default {
     async logout() {
       await this.$store.dispatch('fetchLogout').then(() => {
         this.$router.push('/')
-      })
+      }).then(() => window.location.reload())
     }
-  }
+  },
 }
+
 </script>
 <style>
 #app {
